@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		C615724B2E96D31F002EEE31 /* SwiftfulHaptics in Frameworks */ = {isa = PBXBuildFile; productRef = C615724A2E96D31F002EEE31 /* SwiftfulHaptics */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		C711609A2E9439290045BE26 /* NotADiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotADiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C615724B2E96D31F002EEE31 /* SwiftfulHaptics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +70,7 @@
 			);
 			name = NotADiary;
 			packageProductDependencies = (
+				C615724A2E96D31F002EEE31 /* SwiftfulHaptics */,
 			);
 			productName = NotADiary;
 			productReference = C711609A2E9439290045BE26 /* NotADiary.app */;
@@ -94,6 +100,9 @@
 			);
 			mainGroup = C71160912E9439290045BE26;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				C61572492E96D31F002EEE31 /* XCRemoteSwiftPackageReference "SwiftfulHaptics" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C711609B2E9439290045BE26 /* Products */;
 			projectDirPath = "";
@@ -330,6 +339,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C61572492E96D31F002EEE31 /* XCRemoteSwiftPackageReference "SwiftfulHaptics" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftfulThinking/SwiftfulHaptics";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C615724A2E96D31F002EEE31 /* SwiftfulHaptics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C61572492E96D31F002EEE31 /* XCRemoteSwiftPackageReference "SwiftfulHaptics" */;
+			productName = SwiftfulHaptics;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C71160922E9439290045BE26 /* Project object */;
 }
