@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import HealthKit
+import Combine
 
 @main
 struct NotADiaryApp: App {

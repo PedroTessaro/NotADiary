@@ -1,24 +1,32 @@
-//
-//  ContentView.swift
-//  NotADiary
-//
-//  Created by Pedro Augusto on 06/10/25.
-//
-
+import HealthKit
 import SwiftUI
 
 struct ContentView: View {
+    
+    
+    
+    // MARK: - Properties
+    
+    @State private var steps = 0
+    
+    
+    
+    // MARK: - Body
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("You walked \(steps) steps today!")
         }
-        .padding()
+        .task {
+            await HealthManager.shared.requestHealthAuthorization()
+            await HealthManager.shared.calculateSteps()
+            
+            //await alone doesn`t work as intended
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                steps = HealthManager.shared.getSteps()
+            }
+        }
+        
     }
-}
 
-#Preview {
-    ContentView()
 }
