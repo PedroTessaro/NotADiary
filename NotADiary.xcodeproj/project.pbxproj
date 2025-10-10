@@ -14,9 +14,23 @@
 		C711609A2E9439290045BE26 /* NotADiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotADiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		C64AA4422E9983D800372B67 /* Exceptions for "NotADiary" folder in "NotADiary" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Models/models.txt,
+				ViewModels/viewModels.txt,
+			);
+			target = C71160992E9439290045BE26 /* NotADiary */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		C711609C2E9439290045BE26 /* NotADiary */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				C64AA4422E9983D800372B67 /* Exceptions for "NotADiary" folder in "NotADiary" target */,
+			);
 			path = NotADiary;
 			sourceTree = "<group>";
 		};
