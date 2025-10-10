@@ -10,9 +10,22 @@
 		C711609A2E9439290045BE26 /* NotADiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotADiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		8CEB31DC2E997F3600C47FDB /* Exceptions for "NotADiary" folder in "NotADiary" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = C71160992E9439290045BE26 /* NotADiary */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		C711609C2E9439290045BE26 /* NotADiary */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				8CEB31DC2E997F3600C47FDB /* Exceptions for "NotADiary" folder in "NotADiary" target */,
+			);
 			path = NotADiary;
 			sourceTree = "<group>";
 		};
@@ -255,7 +268,9 @@
 				DEVELOPMENT_TEAM = 539HYZPTH8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotADiary/Info.plist;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Esse aplicativo deseja ler as informacoes do seu app saude";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Esse aplicativo deseja escrever informacoes no seu app saude";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -289,7 +304,9 @@
 				DEVELOPMENT_TEAM = 539HYZPTH8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotADiary/Info.plist;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Esse aplicativo deseja ler as informacoes do seu app saude";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Esse aplicativo deseja escrever informacoes no seu app saude";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
