@@ -22,7 +22,7 @@ class HealthManager{
         guard HKHealthStore.isHealthDataAvailable() else { return }
         
         // Request authorization to read the user's step count from HealthKit
-        //tratar a falta de autorizacao do usuario
+        // Tratar a falta de autorizacao do usuario
         try? await HKHealthStore().requestAuthorization(toShare: [moodType], read: [stepsType,moodType])
     }
     
@@ -47,6 +47,7 @@ class HealthManager{
         let result = try? await descriptor.result(for: HKHealthStore())
         
         // From the daily steps data, get today's step count samples
+        // Study a better way to determine the overall statistics in order to not use the handmade wait on the views.
         result?.enumerateStatistics(from: dateStart, to: dateEnd) { [weak self] statistics, stop in
             // Sum up all step samples for the day
             let steps = Int(statistics.sumQuantity()?.doubleValue(for: .count()) ?? 0)
