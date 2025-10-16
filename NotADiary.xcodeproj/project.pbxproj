@@ -11,11 +11,10 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		C64AA4422E9983D800372B67 /* Exceptions for "NotADiary" folder in "NotADiary" target */ = {
+		C6C751A22EA15C37004C9C1A /* Exceptions for "NotADiary" folder in "NotADiary" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Models/models.txt,
-				ViewModels/viewModels.txt,
+				Info.plist,
 			);
 			target = C71160992E9439290045BE26 /* NotADiary */;
 		};
@@ -25,7 +24,7 @@
 		C711609C2E9439290045BE26 /* NotADiary */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				C64AA4422E9983D800372B67 /* Exceptions for "NotADiary" folder in "NotADiary" target */,
+				C6C751A22EA15C37004C9C1A /* Exceptions for "NotADiary" folder in "NotADiary" target */,
 			);
 			path = NotADiary;
 			sourceTree = "<group>";
@@ -265,11 +264,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NotADiary/NotADiary.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JC55C9UADF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotADiary/Info.plist;
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Permite ai";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -284,6 +285,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tessaro.NotADiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -298,11 +302,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NotADiary/NotADiary.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JC55C9UADF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotADiary/Info.plist;
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Permite ai";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -317,6 +323,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tessaro.NotADiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
