@@ -11,6 +11,8 @@ import HealthKit
 struct ToolbarEntryView: View {
     @Environment(\.dismiss) var dismiss
     
+    @Environment(CloudKitViewModel.self) var ckViewModel: CloudKitViewModel
+
     @Binding var entryList: [JournalEntry]
     @Binding var image1: UIImage?
     
@@ -18,6 +20,7 @@ struct ToolbarEntryView: View {
     
     var text: String
     var day: Date
+    var mood: Int
     var title: String
     var userValence: Double
     var whereToSave: Bool
@@ -58,7 +61,7 @@ struct ToolbarEntryView: View {
                     }
                     ToolbarSpacer(.fixed, placement: .bottomBar)
                     
-                    ToolbarItem (placement: .bottomBar){
+                    ToolbarItem (placement: .bottomBar) {
                         Button {
                             entryList.append(JournalEntry(title: title, text: text, image1: image1 ?? nil, date: day,userValence: userValence))
                             relato = HealthManager.shared.createSample(eventAssociation: userAssociation, userLabel: userLabel, userValence: userValence, endDate: day)

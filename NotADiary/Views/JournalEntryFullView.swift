@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct JournalEntryFullView: View {
-    @Binding var entry: JournalEntry
+    @State var entry: JournalEntry
     @State var isEdit: Bool = false
     var body: some View {
         NavigationStack {
@@ -24,11 +24,11 @@ struct JournalEntryFullView: View {
                         Divider()
                         Text(entry.text)
                         Divider()
-                        Text("\(entry.userValence)")
+                        Text("\(entry.valence)")
                         Divider()
                         HStack {
-                            if entry.image1 != nil {
-                                Image(uiImage: entry.image1!)
+                            if entry.image != nil {
+                                Image(uiImage: entry.image!)
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 240.0, height: 236)

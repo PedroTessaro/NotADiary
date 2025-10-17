@@ -10,6 +10,8 @@ import SwiftUI
 struct JournalEntryEdit: View {
     @Binding var entry: JournalEntry
     @Binding var isEdit: Bool
+    
+    @Environment(CloudKitViewModel.self) var ckViewModel: CloudKitViewModel
 
     var body: some View {
         NavigationStack {
@@ -39,13 +41,21 @@ struct JournalEntryEdit: View {
                             .padding(.horizontal)
                         Spacer()
                     }
-                    PhotoPickerView(image: $entry.image1, isEdit: true)
+                    PhotoPickerView(image: $entry.image, isEdit: true)
                 }
             }
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button {
                         isEdit.toggle()
+                        Task {
+                            do {
+                                try await ckViewModel.editDiaryEntry(entry: entry)
+                            }
+                            catch {
+                                print(error.localizedDescription)
+                            }
+                        }
                     } label: {
                         Text("Save")
                     }

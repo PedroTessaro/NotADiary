@@ -17,7 +17,8 @@ struct EntryView: View {
     
     @State private var isLoading: Bool = true
     @State private var wasClicked: Bool = false
-    @State private var showingAlert: Bool = false
+    @State private var showingAlert1: Bool = false
+    @State private var showingAlert2: Bool = false
     @State private var isLoadingLocal: Bool = false
     
     @State private var state: Int = 0
@@ -47,7 +48,7 @@ struct EntryView: View {
                         HStack {
                             Button {
                                 if !ckViewModel.isLogged {
-                                    showingAlert = true
+                                    showingAlert1 = true
                                 }
                                 else {
                                     state = 1
@@ -57,19 +58,29 @@ struct EntryView: View {
                                 Text("Já tenho")
                             }
                             .buttonStyle(.bordered)
-                            .alert("Já possui conta", isPresented: $showingAlert) {
+                            .alert("Já possui conta", isPresented: $showingAlert1) {
                                 Button("OK", role: .confirm) {}
                             } message: {
-                                Text("Você já possui uma conta no NotADiary, tente entrar na sua conta!")
+                                Text("Você não possui uma conta ou não está conectado ao iCloud")
                             }
                             
                             Button {
-                                state = 2
-                                isLoading = true
+                                if !viewModel.isSignedInToiCloud || ckViewModel.isLogged {
+                                    showingAlert2 = true
+                                }
+                                else {
+                                    state = 2
+                                    isLoading = true
+                                }
                             } label: {
                                 Text("Ainda não tenho")
                             }
                             .buttonStyle(.bordered)
+                            .alert("Já possui conta", isPresented: $showingAlert2) {
+                                Button("OK", role: .confirm) {}
+                            } message: {
+                                Text("Você não está conectado no iCloud ou já possui uma conta!")
+                            }
                         }
                     }
                     .navigationTitle("Boas vindas")

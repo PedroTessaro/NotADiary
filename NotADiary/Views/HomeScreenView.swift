@@ -12,11 +12,13 @@ struct HomeScreenView: View {
     @State var entryList: [JournalEntry] = []
     @State var teste: String = ""
     
+    @Environment(CloudKitViewModel.self) var ckViewModel: CloudKitViewModel
+    
     var body: some View {
         NavigationStack {
             VStack {
                 HStack {
-                    Text("Boas Vindas, <Pessoa>!")
+                    Text("Boas Vindas, \(ckViewModel.preference?.name ?? "")!")
                         .font(.title)
                         .fontWeight(.bold)
                         .padding(.horizontal)
@@ -24,14 +26,24 @@ struct HomeScreenView: View {
                 }
                 
                 ScrollView {
-                    ForEach(Array(entryList.enumerated()), id: \.offset) { index, entry in
+                    ForEach(Array(ckViewModel.entries.enumerated()), id: \.offset) { index, entry in
                         NavigationLink {
-                            JournalEntryFullView(entry: $entryList[index])
+                            JournalEntryFullView(entry: entry)
                         } label: {
                             VStack {
                                 JournalView(entry: entry)
                                 Divider()
                             }
+                        }
+                    }
+                }
+                .refreshable {
+                    Task {
+                        do {
+                            try await ckViewModel.fetchDiaryEntries()
+                        }
+                        catch {
+                            print(error.localizedDescription)
                         }
                     }
                 }

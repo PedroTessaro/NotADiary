@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     @Environment(CloudKitViewModel.self) var ckViewModel: CloudKitViewModel
     
     var body: some View {

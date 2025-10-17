@@ -9,15 +9,6 @@ import Foundation
 import CloudKit
 import UIKit
 
-struct Entry: Identifiable {
-    let id: CKRecord.ID?
-    var title: String
-    var text: String
-    var date: Date
-    var image: UIImage
-    var humor: Int
-}
-
 enum ImageFileType {
     case JPG(compressionQuality: CGFloat)
     case PNG
