@@ -221,7 +221,7 @@ struct JournalEntryView: View {
                     userLabel = HKStateOfMindParseFunctions.shared.labelStringToHKStateOfMind(string: userLabelString)
                 }
                 .onChange(of: userAssociationString) { oldValue, newValue in
-                    userAssociation = HKStateOfMindParseFunctions.shared.associationStringToHKStateOfMind(string: userLabelString)
+                    userAssociation = HKStateOfMindParseFunctions.shared.associationStringToHKStateOfMind(string: userAssociationString)
                 }
                 
                 
