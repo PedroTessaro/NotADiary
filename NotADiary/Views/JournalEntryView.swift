@@ -225,7 +225,7 @@ struct JournalEntryView: View {
                 }
                 
                 
-                ToolbarEntryView(entryList: $entryList, image1: $image1, text: text, day: day, title: title, userValence: userValence,whereToSave: whereToSave, userLabel: userLabel, userAssociation: userAssociation)
+                ToolbarEntryView(entryList: $entryList, image1: $image1, text: text, day: day, mood:0, title: title, userValence: userValence,whereToSave: whereToSave, userLabel: userLabel, userAssociation: userAssociation)
             }
         }
     }
