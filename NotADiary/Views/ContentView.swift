@@ -6,126 +6,101 @@ struct ContentView: View {
     @State private var searchText: String = ""
     
     var body: some View {
-        ZStack {
-            Color.black.ignoresSafeArea()
-            
-            if viewModel.isAuthorized {
-                VStack(spacing: 20) {
-                    Text("Musickit")
-                        .font(.title.bold())
-                        .foregroundColor(.white)
-                        .padding(.top, 60)
-                    
-                    HStack {
-                        TextField("Search music", text: $searchText)
-                            .textFieldStyle(.roundedBorder)
-                        
-                        Button("Search") {
+        NavigationStack {
+            ZStack {
+                Color.black.ignoresSafeArea()
+                
+                if viewModel.isAuthorized {
+                    VStack(spacing: 0) {
+                        ScrollView {
+                            LazyVStack(spacing: 10) {
+                                ForEach(viewModel.songs) { song in
+                                    SongRow(song: song, hapticsManager: viewModel.hapticsManager) {
+                                        Task {
+                                            await viewModel.playSong(song)
+                                        }
+                                    }
+                                    .background(Color.white.opacity(0.1))
+                                }
+                            }
+                            .padding()
+                            .padding(.bottom, 100)
+                        }
+                        .searchable(text: $searchText, prompt: "Search music")
+                        .onSubmit(of: .search) {
                             Task {
                                 await viewModel.searchMusic(term: searchText)
                             }
                         }
-                        .buttonStyle(.borderedProminent)
+                        .onChange(of: searchText) { oldValue, newValue in
+                            if !newValue.isEmpty && newValue.count > 2 {
+                                Task {
+                                    await viewModel.searchMusic(term: newValue)
+                                }
+                            }
+                        }
+                        
+                        Spacer()
                     }
-                    .padding(.horizontal)
                     
-                    ScrollView {
-                        VStack(spacing: 10) {
-                            ForEach(viewModel.songs) { song in
-                                Button {
-                                    Task {
-                                        await viewModel.playSong(song)
-                                    }
-                                } label: {
-                                    HStack {
-                                        AsyncImage(url: song.artwork?.url(width: 50, height: 50)) { image in
-                                            image.resizable()
-                                        } placeholder: {
-                                            Color.gray
-                                        }
-                                        .frame(width: 50, height: 50)
-                                        .cornerRadius(8)
-                                        
-                                        VStack(alignment: .leading) {
-                                            Text(song.title)
-                                                .foregroundColor(.white)
-                                            Text(song.artistName)
-                                                .foregroundColor(.gray)
+                    if let currentSong = viewModel.currentSong {
+                        VStack {
+                            Spacer()
+                            
+                            VStack(spacing: 10) {
+                                Text(currentSong.title)
+                                    .foregroundColor(.white)
+                                    .font(.headline)
+                                
+                                if viewModel.hapticsManager.isHapticsActive {
+                                    if viewModel.hapticsManager.isHapticsAvailable {
+                                        HStack {
+                                            Image(systemName: "waveform")
+                                                .foregroundColor(.green)
+                                            Text("Haptics ON")
+                                                .foregroundColor(.green)
                                                 .font(.caption)
                                         }
-                                        
-                                        Spacer()
-                                    }
-                                    .padding()
-                                    .background(Color.white.opacity(0.1))
-                                    .cornerRadius(10)
-                                }
-                            }
-                        }
-                        .padding()
-                        .padding(.bottom, 100)
-                    }
-                    
-                    Spacer()
-                }
-                
-                if let currentSong = viewModel.currentSong {
-                    VStack {
-                        Spacer()
-                        
-                        VStack(spacing: 10) {
-                            Text(currentSong.title)
-                                .foregroundColor(.white)
-                                .font(.headline)
-                            
-                            if viewModel.hapticsManager.isHapticsActive {
-                                if viewModel.hapticsManager.isHapticsAvailable {
-                                    HStack {
-                                        Image(systemName: "waveform")
-                                            .foregroundColor(.green)
-                                        Text("Haptics ON")
-                                            .foregroundColor(.green)
+                                    } else {
+                                        Text("No haptic track")
+                                            .foregroundColor(.orange)
                                             .font(.caption)
                                     }
-                                } else {
-                                    Text("No haptic track")
-                                        .foregroundColor(.orange)
-                                        .font(.caption)
+                                }
+                                
+                                Button {
+                                    Task {
+                                        await viewModel.togglePlayPause()
+                                    }
+                                } label: {
+                                    Image(systemName: viewModel.isPlaying ? "pause.circle.fill" : "play.circle.fill")
+                                        .font(.system(size: 60))
+                                        .foregroundColor(.white)
                                 }
                             }
-                            
-                            Button {
-                                Task {
-                                    await viewModel.togglePlayPause()
-                                }
-                            } label: {
-                                Image(systemName: viewModel.isPlaying ? "pause.circle.fill" : "play.circle.fill")
-                                    .font(.system(size: 60))
-                                    .foregroundColor(.white)
-                            }
+                            .padding()
+                            .background(Color.gray)
+                            .cornerRadius(20)
+                            .padding()
                         }
-                        .padding()
-                        .background(Color.gray)
-                        .cornerRadius(20)
-                        .padding()
+                    }
+                } else {
+                    VStack {
+                        ProgressView()
+                            .tint(.white)
+                            .scaleEffect(1.5)
+                        
+                        Text("Loading...")
+                            .foregroundColor(.white)
+                            .padding()
                     }
                 }
-            } else {
-                VStack {
-                    ProgressView()
-                        .tint(.white)
-                        .scaleEffect(1.5)
-                    
-                    Text("Loading...")
-                        .foregroundColor(.white)
-                        .padding()
-                }
             }
-        }
-        .task {
-            await viewModel.requestMusicAuthorization()
-            if viewModel.isAuthorized {
-                await viewModel.searchMusic(term: "Bangrang")
+            .task {
+                await viewModel.requestMusicAuthorization()
+                if viewModel.isAuthorized {
+                    await viewModel.searchMusic(term: "Bangrang")
+                }
             }
         }
     }
