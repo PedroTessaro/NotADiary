@@ -1,3 +1,10 @@
+//
+//  MusicPlayerViewModel.swift
+//  NotADiary
+//
+//  Created by Enzo Ferroni on 17/10/25.
+//
+
 import Foundation
 import MusicKit
 import MediaPlayer

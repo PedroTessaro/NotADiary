@@ -1,7 +1,14 @@
+//
+//  MusicView.swift
+//  NotADiary
+//
+//  Created by Enzo Ferroni on 17/10/25.
+//
+
 import SwiftUI
 import MusicKit
 
-struct ContentView: View {
+struct MusicView: View {
     @State private var viewModel = MusicPlayerViewModel()
     @State private var searchText: String = ""
     
