@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    var card = Card(name:"balba", id:"asda")
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
                     .padding()
-                    .shareSheet(items: ["Hello, word!"])
-        }
+            ShareLink(item: card, preview: .init(card.name))        }
         .padding()
     }
 }
