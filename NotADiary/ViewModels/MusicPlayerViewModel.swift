@@ -84,4 +84,16 @@ class MusicPlayerViewModel {
             isPlaying = true
         }
     }
+    
+    func fetchSongById(_ id: String) async -> Song? {
+        let request = MusicCatalogResourceRequest<Song>(matching: \.id, equalTo: MusicItemID(id))
+        
+        do {
+            let response = try await request.response()
+            return response.items.first
+        } catch {
+            print("Error fetching song by ID: \(error)")
+            return nil
+        }
+    }
 }

@@ -19,10 +19,29 @@ struct MusicView: View {
                 
                 if viewModel.isAuthorized {
                     VStack(spacing: 0) {
+                        NavigationLink(destination: {
+                            if let savedId = SongStorage.shared.getSavedSongId() {
+                                SongDetailView(songId: savedId)
+                            } else {
+                                Text("No saved song")
+                                    .foregroundColor(.white)
+                            }
+                        }) {
+                            Text("View Saved Song")
+                                .foregroundColor(.white)
+                                .padding()
+                                .frame(maxWidth: .infinity)
+                                .background(Color.green)
+                                .cornerRadius(10)
+                        }
+                        .padding(.horizontal)
+                        .padding(.top, 10)
+                        
                         ScrollView {
                             LazyVStack(spacing: 10) {
                                 ForEach(viewModel.songs) { song in
                                     SongRow(song: song, hapticsManager: viewModel.hapticsManager) {
+                                        SongStorage.shared.saveSongId(song.id.rawValue)
                                         Task {
                                             await viewModel.playSong(song)
                                         }
