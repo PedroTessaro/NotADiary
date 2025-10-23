@@ -18,6 +18,8 @@ extension UTType {
     static var card: UTType = .init(exportedAs: "com.NotADiary.card")
 }
 
+// @preconcurrency can be a problem..
+
 extension Card: @preconcurrency Transferable {
     static var transferRepresentation: some TransferRepresentation {
         CodableRepresentation(contentType: .card)
