@@ -12,7 +12,6 @@ struct NotADiaryApp: App {
     var body: some Scene {
         WindowGroup {
             EntryView()
-            //Talvez seja assim que você recebe e trata um arquivo
                 .onOpenURL { URL in
                     print(URL)
                 }
