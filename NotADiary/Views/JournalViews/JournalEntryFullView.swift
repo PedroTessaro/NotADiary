@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct JournalEntryFullView: View {
+struct JournalEntryFullView: View  {
     @State var entry: JournalEntry
     @State var isEdit: Bool = false
     

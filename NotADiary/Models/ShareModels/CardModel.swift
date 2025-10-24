@@ -20,9 +20,17 @@ import UniformTypeIdentifiers
 //TODO: Change what is shared by the card.
 
 nonisolated
-struct Card: Identifiable, Codable {
-    let name: String
-    let id: String
+struct Card: Decodable, Encodable {
+    //review
+    var images: [String]
+    var title: String
+    var text: String
+    var date: Date
+    var mood: Int
+    var songID: String
+    var label: String
+    var association: String
+    var valence: Double
 }
 
 extension UTType {
@@ -43,7 +51,7 @@ extension Card: @preconcurrency Transferable {
             return data
         }
         FileRepresentation(contentType: .card) { card in
-            let docsURL = URL.temporaryDirectory.appendingPathComponent("\(card.name)\(UUID().uuidString)", conformingTo: await .card)
+            let docsURL = URL.temporaryDirectory.appendingPathComponent("\(card.title)\(UUID().uuidString)", conformingTo: await .card)
             let data = try JSONEncoder().encode(card)
             try data.write(to: docsURL)
             return SentTransferredFile(docsURL)
