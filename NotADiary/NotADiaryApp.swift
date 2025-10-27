@@ -11,7 +11,7 @@ import SwiftUI
 struct NotADiaryApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            EmotionHapticsView()
         }
     }
 }
