@@ -81,7 +81,7 @@ struct SharedCardView: View  {
             }
         }
         .onAppear(){
-            entry = FuncCardModel.shared.loadJson(url: sharedURL)
+            entry = FuncsCardModel.shared.loadJson(url: sharedURL)
             if(entry?.images != nil){
                 for imagex64 in entry!.images{
                     guard let rebornImg = imagex64.imageFromBase64 else {
