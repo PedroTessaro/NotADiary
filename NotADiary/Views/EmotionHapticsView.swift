@@ -7,8 +7,8 @@ struct EmotionHapticsView: View {
         List {
             Section("Joy") {
                 Button("Bouncy ★") { hapticEngine.playJoyBouncy() }
-                Button("Warm Pulse") { hapticEngine.playJoyWarmPulse() }
-                Button("Celebration") { hapticEngine.playJoyCelebration() }
+                Button("Warm") { hapticEngine.playJoyWarm() }
+                Button("Uplifting ★") { hapticEngine.playJoyUplifting() }
                 Button("Sparkle ★") { hapticEngine.playJoySparkle() }
             }
             
@@ -18,33 +18,37 @@ struct EmotionHapticsView: View {
                 Button("Tearful ★") { hapticEngine.playSadnessTearful() }
                 Button("Sinking ★") { hapticEngine.playSadnessSinking() }
             }
-            
+
             Section("Fear") {
-                Button("Panic") { hapticEngine.playFearPanic() }
-                Button("Anxious") { hapticEngine.playFearAnxious() }
-                Button("Startled") { hapticEngine.playFearStartled() }
-                Button("Trembling ★ (aumentar)") { hapticEngine.playFearTrembling() }
+                Button("Tight Chest") { hapticEngine.playFearTightChest() }
+                Button("Dread ★") { hapticEngine.playFearDread() }
+                Button("Jump Scare") { hapticEngine.playFearJumpScare() }
+                Button("Trembling ★") { hapticEngine.playFearTrembling() }
             }
             
-            Section("Disgust (com animacao talvez)") {
+            Section("Disgust") {
                 Button("Recoil") { hapticEngine.playDisgustRecoil() }
-                Button("Uncomfortable") { hapticEngine.playDisgustUncomfortable() }
-                Button("Nauseous") { hapticEngine.playDisgustNauseous() }
-                Button("Repulsive") { hapticEngine.playDisgustRepulsive() }
+                Button("Nausea") { hapticEngine.playDisgustNausea() }
+                Button("Crawling ★") { hapticEngine.playDisgustCrawling() }
+                Button("Gross") { hapticEngine.playDisgustGross() }
             }
             
             Section("Anger") {
-                Button("Intense Burst") { hapticEngine.playAngerIntenseBurst() }
-                Button("Simmering") { hapticEngine.playAngerSimmering() }
-                Button("Pounding") { hapticEngine.playAngerPounding() }
+                Button("Rage ★") { hapticEngine.playAngerRage() }
+                Button("Tension") { hapticEngine.playAngerTension() }
+                Button("Strike") { hapticEngine.playAngerStrike() }
                 Button("Explosive ★") { hapticEngine.playAngerExplosive() }
             }
             
-            Section("Surprise (morra)") {
-                Button("Quick Pop") { hapticEngine.playSurpriseQuickPop() }
-                Button("Sparkle") { hapticEngine.playSurpriseSparkle() }
+            Section("Surprise") {
                 Button("Gasp") { hapticEngine.playSurpriseGasp() }
+                Button("Oh Moment") { hapticEngine.playSurpriseOhMoment() }
+                Button("Delighted") { hapticEngine.playSurpriseDelighted() }
                 Button("Shock") { hapticEngine.playSurpriseShock() }
+            }
+            
+            Section("Others") {
+                Button("Jump Scare") { hapticEngine.playFearJumpScare() }
             }
         }
         .navigationTitle("Emotion Haptics")
