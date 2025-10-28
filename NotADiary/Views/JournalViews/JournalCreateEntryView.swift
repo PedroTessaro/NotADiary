@@ -26,6 +26,7 @@ struct JournalCreateEntryView: View {
     @State var images: [UIImage] = []
     @State var songID: String = ""
     @State var viewModel = MusicPlayerViewModel()
+//    @State var audioRecordingViewModel = AudioRecordingViewModel()
     
     @FocusState var isKeyboardActive: Bool
     
@@ -162,6 +163,20 @@ struct JournalCreateEntryView: View {
                             }
                         }
                     }
+    
+//                    Button {
+//                        audioRecordingViewModel.startRecording()
+//                        print("ta gravando")
+//                    } label: {
+//                        Text("Start Recording")
+//                    }
+                    
+//                    Button {
+//                        audioRecordingViewModel.stopRecording()
+//                        print("parou de gravar")
+//                    } label: {
+//                        Text("Stop Recording")
+//                    }
                     
                     ForEach (images, id: \.self) { image in
                         Image(uiImage: image)

@@ -194,6 +194,13 @@ class CloudKitViewModel {
         
         let records = result.matchResults.compactMap { try? $0.1.get() }
         
+        if let entryID = entry.id  {
+            if imagesDictionary[entryID] != nil {
+                imagesDictionary[entryID] = []
+            }
+        }
+        
+        
         records.forEach { record in
             guard let entry = record["entry"] as? CKRecord.Reference else { return }
             guard let asset = record["image"] as? CKAsset else { return }
