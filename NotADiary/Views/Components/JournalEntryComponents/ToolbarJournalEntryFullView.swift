@@ -12,9 +12,9 @@ struct ToolbarJournalEntryFullView: View {
     @Environment(CloudKitViewModel.self) var ckViewModel: CloudKitViewModel
     
     @Binding var isEdit: Bool
-    @State var card: Card
+    @State var card: Card = Card(images: [], title: "", text: "", date: Date.now, mood: 0, songID: "", label: "", association: "", valence: 0)
     
-    var entry: JournalEntry
+    @Binding var entry: JournalEntry
     
     var body: some View {
         Text("")
@@ -46,11 +46,12 @@ struct ToolbarJournalEntryFullView: View {
                 
                 ToolbarItem(placement: .bottomBar) {
                     Button {
-                        card = FuncsCardModel.shared.entryToCard(entry: entry)
+                        
                     } label: {
                         Image(systemName: "square.and.arrow.up")
                     }
-                    .shareSheet(items: [card], excludedActivityTypes: [UIActivity.ActivityType.addToHomeScreen,UIActivity.ActivityType.addToReadingList,UIActivity.ActivityType.assignToContact,UIActivity.ActivityType.collaborationCopyLink,UIActivity.ActivityType.collaborationInviteWithLink,UIActivity.ActivityType.copyToPasteboard, UIActivity.ActivityType.mail,UIActivity.ActivityType.markupAsPDF,UIActivity.ActivityType.message,UIActivity.ActivityType.openInIBooks,UIActivity.ActivityType.postToFacebook,UIActivity.ActivityType.postToFlickr,UIActivity.ActivityType.postToTencentWeibo,UIActivity.ActivityType.print,UIActivity.ActivityType.saveToCameraRoll,UIActivity.ActivityType.sharePlay])
+                    .shareSheet(items: [card])
+//                    , excludedActivityTypes: [UIActivity.ActivityType.addToHomeScreen,UIActivity.ActivityType.addToReadingList,UIActivity.ActivityType.assignToContact,UIActivity.ActivityType.collaborationCopyLink,UIActivity.ActivityType.collaborationInviteWithLink,UIActivity.ActivityType.copyToPasteboard, UIActivity.ActivityType.mail,UIActivity.ActivityType.markupAsPDF,UIActivity.ActivityType.message,UIActivity.ActivityType.openInIBooks,UIActivity.ActivityType.postToFacebook,UIActivity.ActivityType.postToFlickr,UIActivity.ActivityType.postToTencentWeibo,UIActivity.ActivityType.print,UIActivity.ActivityType.saveToCameraRoll,UIActivity.ActivityType.sharePlay]
                 }
                 
                 ToolbarSpacer(.flexible, placement: .bottomBar)
@@ -71,6 +72,9 @@ struct ToolbarJournalEntryFullView: View {
                             .foregroundStyle(.red)
                     }
                 }
+            }
+            .onAppear {
+                card = FuncsCardModel.shared.entryToCard(entry: entry, imagesDictionary: ckViewModel.imagesDictionary)
             }
     }
 }

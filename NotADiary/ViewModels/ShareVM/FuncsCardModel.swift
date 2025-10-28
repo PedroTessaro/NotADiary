@@ -7,10 +7,9 @@
 import Foundation
 import UIKit
 import SwiftUI
+import CloudKit
 
 class FuncsCardModel{
-    @Environment(CloudKitViewModel.self) var ckViewModel: CloudKitViewModel
-    
     public static let shared = FuncsCardModel()
     
     func loadJson(url: URL) -> Card? {
@@ -25,21 +24,15 @@ class FuncsCardModel{
         return nil
     }
     
-    func entryToCard(entry: JournalEntry) -> Card{
-        var card: Card
-        card.title = entry.title
-        card.date = entry.date
-        card.text = entry.text
-        card.association = entry.association
-        card.label = entry.label
-        card.mood = entry.mood
-        card.songID = entry.songID
-        card.valence = entry.valence
-        if(ckViewModel.imagesDictionary[entry.id!]?.first?.image != nil){
-            for image in ckViewModel.imagesDictionary[entry.id!]!.enumerated(){
+    func entryToCard(entry: JournalEntry, imagesDictionary: [CKRecord.ID : [ImageModel]]) -> Card {
+        var card = Card(images: [], title: entry.title, text: entry.text, date: entry.date, mood: entry.mood, songID: entry.songID, label: entry.label, association: entry.association, valence: entry.valence)
+        
+        if(imagesDictionary[entry.id!]?.first?.image != nil){
+            for image in imagesDictionary[entry.id!]!.enumerated(){
                 card.images.append(image.element.image.base64!)
             }
         }
+        return card
     }
     
 }

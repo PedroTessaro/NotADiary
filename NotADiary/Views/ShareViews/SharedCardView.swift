@@ -85,7 +85,7 @@ struct SharedCardView: View  {
             if(entry?.images != nil){
                 for imagex64 in entry!.images{
                     guard let rebornImg = imagex64.imageFromBase64 else {
-                        //handle error
+                        return
                     }
                     imageList.append(rebornImg)
                 }

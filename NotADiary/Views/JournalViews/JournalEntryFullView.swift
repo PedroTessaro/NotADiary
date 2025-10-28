@@ -81,7 +81,7 @@ struct JournalEntryFullView: View  {
 //                        }
                     }
                     .padding(.horizontal)
-                    ToolbarJournalEntryFullView(isEdit: $isEdit, entry: entry)
+                    ToolbarJournalEntryFullView(isEdit: $isEdit, entry: $entry)
                 }
             }
         }
