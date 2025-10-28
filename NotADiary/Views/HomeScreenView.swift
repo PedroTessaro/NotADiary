@@ -11,6 +11,8 @@ struct HomeScreenView: View {
     @State var toggleSheet: Bool = false
     @State var entryList: [JournalEntry] = []
     @State var teste: String = ""
+    @State var toggleShared: Bool = false
+    @State var sharedURL: URL?
     
     @Environment(CloudKitViewModel.self) var ckViewModel: CloudKitViewModel
     
@@ -25,7 +27,7 @@ struct HomeScreenView: View {
                     Spacer()
                 }
                 ToolbarHomeScreenView(toggleSheet: $toggleSheet, teste: $teste)
-
+                
                 ScrollView {
                     ForEach(Array(ckViewModel.entries.enumerated()), id: \.offset) { index, entry in
                         NavigationLink {
@@ -63,7 +65,17 @@ struct HomeScreenView: View {
             .fullScreenCover(isPresented: $toggleSheet){
                 JournalCreateEntryView(entryList: $entryList)
             }
+            .fullScreenCover(isPresented: $toggleShared){
+                //it can break, handle it.
+                SharedCardView(sharedURL: sharedURL!)
+            }
+        }
+        
+        .onOpenURL { URL in
+            toggleShared = true
+            sharedURL = URL
         }
     }
+    
+    
 }
-
