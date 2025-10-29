@@ -138,7 +138,9 @@ class CloudKitViewModel {
             
             let entry = JournalEntry(id: record.recordID, title: title, text: text, date: date, mood: mood, songID: songID, label: label, association: association, valence: valence)
             
-            entriesDictionary[record.recordID] = entry
+            if entriesDictionary[record.recordID] == nil {
+                entriesDictionary[record.recordID] = entry
+            }
             entries.append(entry)
         }
     }
@@ -223,6 +225,10 @@ class CloudKitViewModel {
         let result = try await container.privateCloudDatabase.records(matching: query)
         
         let records = result.matchResults.compactMap { try? $0.1.get() }
+        
+        if let entryID = entry.id {
+            imagesDictionary[entryID] = nil
+        }
         
         records.forEach { record in
             guard let entry = record["entry"] as? CKRecord.Reference else { return }
