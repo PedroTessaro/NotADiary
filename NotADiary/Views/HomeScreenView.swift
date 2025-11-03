@@ -70,6 +70,16 @@ struct HomeScreenView: View {
                 }
                 
             }
+            .refreshable {
+                Task {
+                    do {
+                        try await ckViewModel.fetchDiaryEntries()
+                    }
+                    catch {
+                        print(error.localizedDescription)
+                    }
+                }
+            }
             .background { Color.background.ignoresSafeArea()}
             .task {
                 await HealthManager.shared.requestHealthAuthorization()

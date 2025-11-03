@@ -28,11 +28,11 @@ struct ToolbarJournalEntryFullView: View {
                             Label("Editar", systemImage: "slider.horizontal.3")
                         }
                         
-                        Button {
-                            print("share")
-                        } label: {
-                            Label("Compartilhar", systemImage: "square.and.arrow.up")
-                        }
+//                        Button {
+//                            print("share")
+//                        } label: {
+//                            Label("Compartilhar", systemImage: "square.and.arrow.up")
+//                        }
                         
                         Button(role: .destructive) {
                             alert.toggle()
