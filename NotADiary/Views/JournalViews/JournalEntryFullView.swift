@@ -16,7 +16,7 @@ struct JournalEntryFullView: View {
     @State var fullImage: Bool = false
     @State var moodImage: String?
     @State var moodValue: MascotMood?
-    
+    @State var buttonState: Int = 0
     @State var mpViewModel = MusicPlayerViewModel()
     @State var song: Song?
     
@@ -32,6 +32,7 @@ struct JournalEntryFullView: View {
                     VStack {
                         HStack {
                             Text(entry.title)
+                                .foregroundStyle(.black)
                                 .font(.largeTitle)
                                 .fontWeight(.bold)
                             Spacer()
@@ -48,25 +49,52 @@ struct JournalEntryFullView: View {
                             .frame(width: 193, height: 193)
                         HStack {
                             Text(entry.text)
+                                .foregroundStyle(.black)
                             Spacer()
                         }
                         
-                        ZStack {
-                            //Placeholder for Music Card
-                            RoundedRectangle(cornerRadius: 15)
-                                .frame(width: 365, height: 71)
-                                .foregroundStyle(.white)
-                            if song != nil {
-                                SongRow(isEdit: true, song: song!, hapticsManager: mpViewModel.hapticsManager, viewModel: $mpViewModel) {
-                                    Task {
-                                        await mpViewModel.togglePlayPause()
-                                    }
+                        HStack {
+                            Button{
+                                buttonState = 0
+                                print(buttonState)
+                            } label: {
+                                if buttonState == 0 {
+                                    Label("Música",systemImage: "music.note")
+                                    
+                                }else{
+                                    Image(systemName: "music.note")
                                 }
-                                .background(.white.opacity(0.7))
-                                .frame(width: 365, height: 71)
-                                .clipShape(RoundedRectangle(cornerRadius: 15))
-                                
                             }
+                            .buttonStyle(.bordered)
+                            
+                            
+                            
+                            Button {
+                                buttonState = 1
+                                print(buttonState)
+                            } label: {
+                                if buttonState == 1 {
+                                    Label("Música",systemImage: "music.note")
+                                }else{
+                                    Image(systemName: "music.note")
+                                }
+                            }
+                            .buttonStyle(.bordered)
+                            
+                            
+                            Button {
+                                buttonState = 2
+                                print(buttonState)
+                            } label: {
+                                if buttonState == 2 {
+                                    Label("Música",systemImage: "music.note")
+                                }else{
+                                    Image(systemName: "music.note")
+                                }
+                            }
+                            .buttonStyle(.bordered)
+                            
+                            
                         }
                         
                         ImagesGridView(entry: entry)
