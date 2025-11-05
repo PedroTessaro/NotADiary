@@ -34,12 +34,6 @@ struct ToolbarJournalEntryFullView: View {
                             Label("Editar", systemImage: "slider.horizontal.3")
                         }
                         
-                        NavigationLink {
-                            
-                        } label: {
-                            Label("Compartilhar", systemImage: "square.and.arrow.up")
-                        }
-                        
                         Button(role: .destructive) {
                             alert.toggle()
                         } label: {
