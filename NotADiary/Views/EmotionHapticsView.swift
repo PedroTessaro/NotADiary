@@ -25,10 +25,10 @@ struct EmotionHapticsView: View {
             }
             
             NavigationStack {
-                DisgustHapticsView()
+                LoveHapticsView()
             }
             .tabItem {
-                Label("Nojo", systemImage: "hand.raised")
+                Label("Amor", systemImage: "heart.fill")
             }
             
             NavigationStack {

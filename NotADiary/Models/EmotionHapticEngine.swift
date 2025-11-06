@@ -234,74 +234,83 @@ class EmotionHapticEngine {
         playPattern(events: events)
     }
     
-    // MARK: - Disgust Patterns
+    // MARK: - Love Patterns
     
-    func playDisgustRecoil() {
-        let events: [CHHapticEvent] = [
-            CHHapticEvent(eventType: .hapticTransient, parameters: [
-                CHHapticEventParameter(parameterID: .hapticIntensity, value: 0.95),
-                CHHapticEventParameter(parameterID: .hapticSharpness, value: 1.0)
-            ], relativeTime: 0),
-            CHHapticEvent(eventType: .hapticTransient, parameters: [
-                CHHapticEventParameter(parameterID: .hapticIntensity, value: 0.7),
-                CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.85)
-            ], relativeTime: 0.1)
-        ]
-        playPattern(events: events)
-    }
-    
-    func playDisgustNausea() {
-        let events: [CHHapticEvent] = [
-            CHHapticEvent(eventType: .hapticContinuous, parameters: [
-                CHHapticEventParameter(parameterID: .hapticIntensity, value: 0.4),
-                CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.15)
-            ], relativeTime: 0, duration: 0.35),
-            CHHapticEvent(eventType: .hapticContinuous, parameters: [
-                CHHapticEventParameter(parameterID: .hapticIntensity, value: 0.6),
-                CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.2)
-            ], relativeTime: 0.4, duration: 0.35),
-            CHHapticEvent(eventType: .hapticContinuous, parameters: [
-                CHHapticEventParameter(parameterID: .hapticIntensity, value: 0.5),
-                CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.15)
-            ], relativeTime: 0.8, duration: 0.4)
-        ]
-        playPattern(events: events)
-    }
-    
-    func playDisgustCrawling() {
+    func playLoveHeartbeat() {
         var events = [CHHapticEvent]()
         
-        let crawlTimings: [(time: Double, intensity: Float)] = [
-            (0.0, 0.3), (0.08, 0.4), (0.12, 0.35),
-            (0.22, 0.45), (0.28, 0.3), (0.35, 0.5),
-            (0.42, 0.35), (0.5, 0.4), (0.58, 0.45),
-            (0.65, 0.3), (0.72, 0.5), (0.8, 0.35)
+        let heartbeatPattern: [(time: Double, intensity: Float)] = [
+            (0.0, 0.6), (0.15, 0.4),
+            (0.6, 0.65), (0.75, 0.45),
+            (1.2, 0.7), (1.35, 0.5)
         ]
         
-        for (time, intensity) in crawlTimings {
+        for (time, intensity) in heartbeatPattern {
             events.append(CHHapticEvent(eventType: .hapticTransient, parameters: [
                 CHHapticEventParameter(parameterID: .hapticIntensity, value: intensity),
-                CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.9)
+                CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.3)
             ], relativeTime: time))
         }
         
         playPattern(events: events)
     }
     
-    func playDisgustGross() {
+    func playLoveTender() {
         let events: [CHHapticEvent] = [
             CHHapticEvent(eventType: .hapticContinuous, parameters: [
-                CHHapticEventParameter(parameterID: .hapticIntensity, value: 0.55),
-                CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.25)
-            ], relativeTime: 0, duration: 0.25),
+                CHHapticEventParameter(parameterID: .hapticIntensity, value: 0.3),
+                CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.1)
+            ], relativeTime: 0, duration: 0.5),
+            CHHapticEvent(eventType: .hapticContinuous, parameters: [
+                CHHapticEventParameter(parameterID: .hapticIntensity, value: 0.45),
+                CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.15)
+            ], relativeTime: 0.55, duration: 0.5),
+            CHHapticEvent(eventType: .hapticContinuous, parameters: [
+                CHHapticEventParameter(parameterID: .hapticIntensity, value: 0.35),
+                CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.1)
+            ], relativeTime: 1.1, duration: 0.6)
+        ]
+        playPattern(events: events)
+    }
+    
+    func playLoveButterflies() {
+        var events = [CHHapticEvent]()
+        
+        let butterflyTimings: [(time: Double, intensity: Float)] = [
+            (0.0, 0.4), (0.08, 0.35), (0.15, 0.45),
+            (0.25, 0.3), (0.32, 0.5), (0.42, 0.35),
+            (0.5, 0.4), (0.58, 0.45), (0.68, 0.3),
+            (0.75, 0.5), (0.85, 0.35), (0.92, 0.4)
+        ]
+        
+        for (time, intensity) in butterflyTimings {
+            events.append(CHHapticEvent(eventType: .hapticTransient, parameters: [
+                CHHapticEventParameter(parameterID: .hapticIntensity, value: intensity),
+                CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.6)
+            ], relativeTime: time))
+        }
+        
+        playPattern(events: events)
+    }
+    
+    func playLovePassionate() {
+        let events: [CHHapticEvent] = [
+            CHHapticEvent(eventType: .hapticContinuous, parameters: [
+                CHHapticEventParameter(parameterID: .hapticIntensity, value: 0.5),
+                CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.3)
+            ], relativeTime: 0, duration: 0.3),
             CHHapticEvent(eventType: .hapticTransient, parameters: [
                 CHHapticEventParameter(parameterID: .hapticIntensity, value: 0.7),
-                CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.4)
-            ], relativeTime: 0.3),
+                CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.5)
+            ], relativeTime: 0.35),
             CHHapticEvent(eventType: .hapticContinuous, parameters: [
+                CHHapticEventParameter(parameterID: .hapticIntensity, value: 0.65),
+                CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.4)
+            ], relativeTime: 0.45, duration: 0.4),
+            CHHapticEvent(eventType: .hapticTransient, parameters: [
                 CHHapticEventParameter(parameterID: .hapticIntensity, value: 0.6),
-                CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.3)
-            ], relativeTime: 0.4, duration: 0.35)
+                CHHapticEventParameter(parameterID: .hapticSharpness, value: 0.4)
+            ], relativeTime: 0.9)
         ]
         playPattern(events: events)
     }

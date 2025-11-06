@@ -5,19 +5,19 @@ struct LoveHapticsView: View {
     
     var body: some View {
         List {
-            Button("Heartbeat") {
+            Button("1") {
                 hapticEngine.playLoveHeartbeat()
             }
             
-            Button("Tender") {
+            Button("2") {
                 hapticEngine.playLoveTender()
             }
             
-            Button("Butterflies") {
+            Button("3") {
                 hapticEngine.playLoveButterflies()
             }
             
-            Button("Passionate") {
+            Button("4") {
                 hapticEngine.playLovePassionate()
             }
         }
