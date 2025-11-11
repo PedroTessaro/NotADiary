@@ -70,7 +70,6 @@ struct JournalEntryFullView: View {
                                     .background(.white.opacity(0.7))
                                     .frame(width: 365, height: 71)
                                     .clipShape(RoundedRectangle(cornerRadius: 15))
-                                    
                                 }
                             }
                             
@@ -81,7 +80,7 @@ struct JournalEntryFullView: View {
                         
                         ToolbarJournalEntryFullView(isEdit: $isEdit, card: card, entry: entry)
                     }
-                    //MusicCardFullView(entry: entry)
+                    MusicCardFullView(entry: entry)
                 }
                 
                 .onAppear() {
