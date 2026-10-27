@@ -4,19 +4,19 @@
 
 # NotADiary
 
-### An emotional journal for iOS that goes beyond words. 🐾
+### An emotional journal for iOS that goes beyond words.
 
 Capture how you feel with text, photos, music, and **haptic feedback** that turns
-every emotion into a physical sensation — guided by a little puppy mascot that
+every emotion into a physical sensation, guided by a little puppy mascot that
 mirrors your mood.
 
 <br/>
 
-[![Platform](https://img.shields.io/badge/iOS-26.0+-000000?style=for-the-badge&logo=apple&logoColor=white)](https://www.apple.com/ios/)
-[![Swift](https://img.shields.io/badge/Swift-5-FA7343?style=for-the-badge&logo=swift&logoColor=white)](https://swift.org)
-[![SwiftUI](https://img.shields.io/badge/SwiftUI-0080FF?style=for-the-badge&logo=swift&logoColor=white)](https://developer.apple.com/xcode/swiftui/)
-[![CloudKit](https://img.shields.io/badge/CloudKit-iCloud-3693F3?style=for-the-badge&logo=icloud&logoColor=white)](https://developer.apple.com/icloud/cloudkit/)
-[![License](https://img.shields.io/badge/License-MIT-3DA639?style=for-the-badge)](LICENSE)
+[![Platform](https://img.shields.io/badge/iOS-26.0+-000000?logo=apple&logoColor=white)](https://www.apple.com/ios/)
+[![Swift](https://img.shields.io/badge/Swift-5-FA7343?logo=swift&logoColor=white)](https://swift.org)
+[![SwiftUI](https://img.shields.io/badge/SwiftUI-0080FF?logo=swift&logoColor=white)](https://developer.apple.com/xcode/swiftui/)
+[![CloudKit](https://img.shields.io/badge/CloudKit-iCloud-3693F3?logo=icloud&logoColor=white)](https://developer.apple.com/icloud/cloudkit/)
+[![License](https://img.shields.io/badge/License-MIT-3DA639)](LICENSE)
 
 <br/>
 
@@ -28,34 +28,34 @@ mirrors your mood.
 
 ---
 
-## 📑 Table of Contents
+## Table of Contents
 
-- [About](#-about)
-- [Screenshots](#-screenshots)
-- [Meet the Mascot](#-meet-the-mascot)
-- [Features](#-features)
-- [Tech Stack](#-tech-stack)
-- [Requirements](#-requirements)
-- [Project Structure](#-project-structure)
-- [Getting Started](#-getting-started)
-- [Team](#-team)
-- [License](#-license)
+- [About](#about)
+- [Screenshots](#screenshots)
+- [Meet the Mascot](#meet-the-mascot)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Requirements](#requirements)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Team](#team)
+- [License](#license)
 
 ---
 
-## ✨ About
+## About
 
 **NotADiary** ("not a diary") is a journaling app focused on emotional check-ins.
 The idea is simple: instead of just writing, you tie each entry to an **emotion**, a
-**song**, and **photos** — and the device itself *responds* to that emotion through
+**song** and **photos**, and the device itself *responds* to that emotion through
 vibration patterns (haptics) carefully designed for each feeling.
 
 A mascot follows along with every entry, shifting its mood to match the emotion you
-log — giving your journal real personality.
+log, giving your journal real personality.
 
 ---
 
-## 📱 Screenshots
+## Screenshots
 
 <div align="center">
 
@@ -67,7 +67,7 @@ log — giving your journal real personality.
 
 ---
 
-## 🐶 Meet the Mascot
+## Meet the Mascot
 
 The puppy reacts to your entry with **12 mood states** (six base emotions, each
 with an *ultra* variant). Here are the six core moods:
@@ -84,21 +84,21 @@ with an *ultra* variant). Here are the six core moods:
 
 ---
 
-## 🚀 Features
+## Features
 
-- **📝 Journal entries** — title, text, date and the emotion of the moment.
-- **😊 Emotional mascot** — a character that mirrors the entry's mood, with 12 states (happiness, anger, surprise, fear, love, sadness, and their intense variants).
-- **📳 Emotional haptics** — unique vibration patterns built with **Core Haptics** for each emotion (e.g. a "heartbeat" for love, a "tremor" for fear, an "explosion" for anger).
-- **🎵 Apple Music integration** — search and attach a song to each entry via **MusicKit**, with in-app playback and **Music Haptics** support.
-- **📷 Photos** — attach images to your entries in a visual gallery.
-- **☁️ iCloud sync** — all entries and preferences are stored and synced with **CloudKit**.
-- **🔔 Reminders** — schedule notifications to remember to log your day.
-- **📤 Shareable cards** — export and share entries as a custom `.card` document type.
-- **👋 Onboarding** — a welcome flow with name setup and notification configuration.
+- **Journal entries**: title, text, date and the emotion of the moment.
+- **Emotional mascot**: a character that mirrors the entry's mood, with 12 states (happiness, anger, surprise, fear, love, sadness, and their intense variants).
+- **Emotional haptics**: unique vibration patterns built with **Core Haptics** for each emotion (e.g. a "heartbeat" for love, a "tremor" for fear, an "explosion" for anger).
+- **Apple Music integration**: search and attach a song to each entry via **MusicKit**, with in-app playback and **Music Haptics** support.
+- **Photos**: attach images to your entries in a visual gallery.
+- **iCloud sync**: all entries and preferences are stored and synced with **CloudKit**.
+- **Reminders**: schedule notifications to remember to log your day.
+- **Shareable cards**: export and share entries as a custom `.card` document type.
+- **Onboarding**: a welcome flow with name setup and notification configuration.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Area | Technology |
 |------|-----------|
@@ -113,7 +113,7 @@ with an *ultra* variant). Here are the six core moods:
 
 ---
 
-## 📋 Requirements
+## Requirements
 
 - **iOS 26.0** or later
 - Xcode 26 or later
@@ -122,7 +122,7 @@ with an *ultra* variant). Here are the six core moods:
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 NotADiary/
@@ -156,7 +156,7 @@ SwiftUI views.
 
 ---
 
-## 🎯 Getting Started
+## Getting Started
 
 **Requirements:** Xcode 26+, an iCloud account, and an Apple Music subscription for music features.
 
@@ -173,7 +173,7 @@ Pick a simulator or device and run with **⌘R**. (CloudKit, MusicKit and Haptic
 
 ---
 
-## 👥 Team
+## Team
 
 <div align="center">
   <table>
@@ -214,11 +214,6 @@ Pick a simulator or device and run with **⌘R**. (CloudKit, MusicKit and Haptic
 
 ---
 
-## 📄 License
+## License
 
 Released under the [MIT License](LICENSE). © 2026 Enzo Ferroni, Francisco Losada, Gabriel Gonçalves, Pedro Tessaro and Vinicius Marques.
-
-<div align="center">
-<br/>
-<sub>Made with 💜, haptics and a very expressive puppy.</sub>
-</div>
