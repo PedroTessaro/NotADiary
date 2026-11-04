@@ -1,52 +1,128 @@
+<div align="center">
+
+<img src="docs/icon.jpg" width="140" alt="NotADiary app icon" style="border-radius: 28px;"/>
+
 # NotADiary
 
-> Um diário emocional para iOS que vai além das palavras — registre seus sentimentos com texto, fotos, música e **feedback háptico** que traduz cada emoção em sensação.
+### An emotional journal for iOS that goes beyond words.
 
-[![Disponível na App Store](https://img.shields.io/badge/App_Store-Baixar-0D96F6?logo=apple&logoColor=white)](https://apps.apple.com/br/app/notadiary/id6753695305)
+Capture how you feel with text, photos, music, and **haptic feedback** that turns
+every emotion into a physical sensation, guided by a little puppy mascot that
+mirrors your mood.
 
-📱 **[Disponível na App Store](https://apps.apple.com/br/app/notadiary/id6753695305)**
+<br/>
+
+[![Platform](https://img.shields.io/badge/iOS-26.0+-000000?logo=apple&logoColor=white)](https://www.apple.com/ios/)
+[![Swift](https://img.shields.io/badge/Swift-5-FA7343?logo=swift&logoColor=white)](https://swift.org)
+[![SwiftUI](https://img.shields.io/badge/SwiftUI-0080FF?logo=swift&logoColor=white)](https://developer.apple.com/xcode/swiftui/)
+[![CloudKit](https://img.shields.io/badge/CloudKit-iCloud-3693F3?logo=icloud&logoColor=white)](https://developer.apple.com/icloud/cloudkit/)
+[![License](https://img.shields.io/badge/License-MIT-3DA639)](LICENSE)
+
+<br/>
+
+<a href="https://apps.apple.com/br/app/notadiary/id6753695305">
+  <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" height="56" alt="Download on the App Store"/>
+</a>
+
+</div>
 
 ---
 
-## Sobre
+## Table of Contents
 
-**NotADiary** ("Não é um diário") é um app de journaling focado no registro emocional. A proposta é simples: em vez de só escrever, você associa cada entrada a uma **emoção**, a uma **música** e a **fotos** — e o próprio dispositivo "responde" à emoção através de padrões de vibração (háptica) cuidadosamente desenhados para cada sentimento.
+- [About](#about)
+- [Screenshots](#screenshots)
+- [Meet the Mascot](#meet-the-mascot)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Requirements](#requirements)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Team](#team)
+- [License](#license)
 
-Um mascote acompanha cada entrada, mudando de humor de acordo com a emoção registrada, dando personalidade ao seu diário.
+---
 
-## ✨ Funcionalidades
+## About
 
-- **📝 Entradas de diário** — título, texto, data e a emoção do momento.
-- **😊 Mascote emocional** — um personagem que reflete o humor da entrada, com 12 estados de humor (alegria, raiva, surpresa, medo, amor, tristeza, e suas variantes intensas).
-- **📳 Háptica emocional** — padrões de vibração exclusivos construídos com **Core Haptics** para cada emoção (ex.: "batimento cardíaco" para amor, "tremor" para medo, "explosão" para raiva).
-- **🎵 Integração com Apple Music** — busque e associe uma música a cada entrada via **MusicKit**, com reprodução dentro do app e suporte a **Music Haptics**.
-- **📷 Fotos** — anexe imagens às suas entradas em uma galeria visual.
-- **☁️ Sincronização via iCloud** — todas as entradas e preferências são armazenadas e sincronizadas com **CloudKit**.
-- **🔔 Lembretes** — agende notificações para lembrar de registrar seu dia.
-- **📤 Compartilhamento de Cards** — exporte e compartilhe entradas como um arquivo `.card` (tipo de documento customizado).
-- **👋 Onboarding** — fluxo de boas-vindas com cadastro de nome e configuração de notificações.
+**NotADiary** ("not a diary") is a journaling app focused on emotional check-ins.
+The idea is simple: instead of just writing, you tie each entry to an **emotion**, a
+**song** and **photos**, and the device itself *responds* to that emotion through
+vibration patterns (haptics) carefully designed for each feeling.
 
-## 🛠 Tecnologias
+A mascot follows along with every entry, shifting its mood to match the emotion you
+log, giving your journal real personality.
 
-| Área | Tecnologia |
+---
+
+## Screenshots
+
+<div align="center">
+
+| Log your feelings | Learn about yourself | Share what you love |
+|:---:|:---:|:---:|
+| <img src="docs/screenshots/log-feelings.png" width="240"/> | <img src="docs/screenshots/learn-about-yourself.png" width="240"/> | <img src="docs/screenshots/share-with-loved-ones.png" width="240"/> |
+
+</div>
+
+---
+
+## Meet the Mascot
+
+The puppy reacts to your entry with **12 mood states** (six base emotions, each
+with an *ultra* variant). Here are the six core moods:
+
+<div align="center">
+
+| Happiness | Sadness | Anger |
+|:---:|:---:|:---:|
+| <img src="docs/mascots/happiness.png" width="150"/> | <img src="docs/mascots/sadness.png" width="150"/> | <img src="docs/mascots/anger.png" width="150"/> |
+| **Fear** | **Surprise** | **Love** |
+| <img src="docs/mascots/fear.png" width="150"/> | <img src="docs/mascots/surprise.png" width="150"/> | <img src="docs/mascots/love.png" width="150"/> |
+
+</div>
+
+---
+
+## Features
+
+- **Journal entries**: title, text, date and the emotion of the moment.
+- **Emotional mascot**: a character that mirrors the entry's mood, with 12 states (happiness, anger, surprise, fear, love, sadness, and their intense variants).
+- **Emotional haptics**: unique vibration patterns built with **Core Haptics** for each emotion (e.g. a "heartbeat" for love, a "tremor" for fear, an "explosion" for anger).
+- **Apple Music integration**: search and attach a song to each entry via **MusicKit**, with in-app playback and **Music Haptics** support.
+- **Photos**: attach images to your entries in a visual gallery.
+- **iCloud sync**: all entries and preferences are stored and synced with **CloudKit**.
+- **Reminders**: schedule notifications to remember to log your day.
+- **Shareable cards**: export and share entries as a custom `.card` document type.
+- **Onboarding**: a welcome flow with name setup and notification configuration.
+
+---
+
+## Tech Stack
+
+| Area | Technology |
 |------|-----------|
 | UI | SwiftUI |
-| Persistência / Sync | CloudKit (iCloud) |
-| Música | MusicKit · MediaPlayer · AVFoundation |
-| Háptica | Core Haptics · MediaAccessibility (Music Haptics) |
-| Notificações | UserNotifications |
-| Arquitetura | MVVM |
+| Persistence / Sync | CloudKit (iCloud) |
+| Music | MusicKit · MediaPlayer · AVFoundation |
+| Haptics | Core Haptics · MediaAccessibility (Music Haptics) |
+| Notifications | UserNotifications |
+| Architecture | MVVM |
 
-> Há também trabalho exploratório de integração com **HealthKit (State of Mind)** para registro de humor no app Saúde.
+> There is also exploratory work integrating **HealthKit (State of Mind)** to log mood in the Health app.
 
-## 📋 Requisitos
+---
 
-- **iOS 26.0** ou superior
-- Xcode 26 ou superior
-- Conta iCloud (para sincronização)
-- Assinatura do Apple Music (para as funcionalidades de música)
+## Requirements
 
-## 📁 Estrutura do projeto
+- **iOS 26.0** or later
+- Xcode 26 or later
+- An iCloud account (for sync)
+- An Apple Music subscription (for the music features)
+
+---
+
+## Project Structure
 
 ```
 NotADiary/
@@ -55,38 +131,89 @@ NotADiary/
 │   ├── JournalModels/          # JournalEntry, Entry, Mascot, Image
 │   ├── ShareModels/            # Card (Transferable / UTType)
 │   ├── MusicKitModels/         # Music Haptics
-│   ├── HealthKitModels/        # State of Mind (exploratório)
-│   ├── EmotionHapticEngine.swift  # Padrões de vibração por emoção
+│   ├── HealthKitModels/        # State of Mind (exploratory)
+│   ├── EmotionHapticEngine.swift  # Per-emotion vibration patterns
 │   ├── NotificationsModel.swift
 │   └── PreferenceModel.swift
 ├── ViewModels/
-│   ├── CloudKitVM/             # Sincronização de entradas e preferências
-│   ├── MusicKitVM/             # Player e busca de músicas
-│   ├── JournalVM/              # Lógica do mascote
-│   ├── ShareVM/                # Geração e conversão de Cards
+│   ├── CloudKitVM/             # Entry & preference sync
+│   ├── MusicKitVM/             # Music player and search
+│   ├── JournalVM/              # Mascot logic
+│   ├── ShareVM/                # Card generation & conversion
 │   └── HealthKitVM/
 ├── Views/
-│   ├── OnboardingViews/        # Fluxo de cadastro e notificações
-│   ├── JournalViews/           # Lista, criação, edição e visualização de entradas
-│   ├── ShareViews/             # Card compartilhável
-│   └── Components/             # Componentes reutilizáveis (mascote, música, fotos…)
+│   ├── OnboardingViews/        # Name & notification setup flow
+│   ├── JournalViews/           # List, create, edit and view entries
+│   ├── ShareViews/             # Shareable card
+│   └── Components/             # Reusable components (mascot, music, photos…)
 ├── Extensions/
-└── Assets/                     # Cores, mascotes (SVG) e ícones
+└── Assets/                     # Colors, mascots (SVG) and icons
 ```
 
-A arquitetura segue o padrão **MVVM**, separando claramente modelos de dados, lógica de apresentação (ViewModels com `@Observable`/`ObservableObject`) e as Views em SwiftUI.
-
-## 👥 Time
-
-Projeto desenvolvido por:
-
-- Pedro Augusto (Tessaro)
-- Francisco Losada
-- Enzo Ferroni
-- Vinicius Alves Marques
+The architecture follows the **MVVM** pattern, cleanly separating data models,
+presentation logic (ViewModels with `@Observable`/`ObservableObject`) and the
+SwiftUI views.
 
 ---
 
-<p align="center">
-  <a href="https://apps.apple.com/br/app/notadiary/id6753695305">Baixe o NotADiary na App Store</a>
-</p>
+## Getting Started
+
+**Requirements:** Xcode 26+, an iCloud account, and an Apple Music subscription for music features.
+
+```bash
+# Clone the repository
+git clone https://github.com/EnzoFerroni/NotADiary.git
+cd NotADiary
+
+# Open the project in Xcode
+open NotADiary.xcodeproj
+```
+
+Pick a simulator or device and run with **⌘R**. (CloudKit, MusicKit and Haptics work best on a real device.)
+
+---
+
+## Team
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center" width="20%">
+        <a href="https://github.com/EnzoFerroni"><img src="https://github.com/EnzoFerroni.png" width="90" alt="Enzo Ferroni"/></a>
+        <br/><sub><b>Enzo Ferroni</b></sub><br/><br/>
+        <a href="https://github.com/EnzoFerroni"><img src="https://skillicons.dev/icons?i=github" alt="GitHub"/></a>
+        <a href="https://www.linkedin.com/in/enzoferroni/"><img src="https://skillicons.dev/icons?i=linkedin" alt="LinkedIn"/></a>
+      </td>
+      <td align="center" width="20%">
+        <a href="https://github.com/LosadaT"><img src="https://github.com/LosadaT.png" width="90" alt="Francisco Losada"/></a>
+        <br/><sub><b>Francisco Losada</b></sub><br/><br/>
+        <a href="https://github.com/LosadaT"><img src="https://skillicons.dev/icons?i=github" alt="GitHub"/></a>
+        <a href="https://www.linkedin.com/in/francisco-losada-totaro/"><img src="https://skillicons.dev/icons?i=linkedin" alt="LinkedIn"/></a>
+      </td>
+      <td align="center" width="20%">
+        <a href="https://github.com/gsgonca"><img src="https://github.com/gsgonca.png" width="90" alt="Gabriel Gonçalves"/></a>
+        <br/><sub><b>Gabriel Gonçalves</b></sub><br/><br/>
+        <a href="https://github.com/gsgonca"><img src="https://skillicons.dev/icons?i=github" alt="GitHub"/></a>
+        <a href="https://www.linkedin.com/in/gabriel-s-gon%C3%A7alves/"><img src="https://skillicons.dev/icons?i=linkedin" alt="LinkedIn"/></a>
+      </td>
+      <td align="center" width="20%">
+        <a href="https://github.com/PedroTessaro"><img src="https://github.com/PedroTessaro.png" width="90" alt="Pedro Tessaro"/></a>
+        <br/><sub><b>Pedro Tessaro</b></sub><br/><br/>
+        <a href="https://github.com/PedroTessaro"><img src="https://skillicons.dev/icons?i=github" alt="GitHub"/></a>
+        <a href="https://www.linkedin.com/in/pedrotessaro/"><img src="https://skillicons.dev/icons?i=linkedin" alt="LinkedIn"/></a>
+      </td>
+      <td align="center" width="20%">
+        <a href="https://github.com/hyauss"><img src="https://github.com/hyauss.png" width="90" alt="Vinicius Marques"/></a>
+        <br/><sub><b>Vinicius Marques</b></sub><br/><br/>
+        <a href="https://github.com/hyauss"><img src="https://skillicons.dev/icons?i=github" alt="GitHub"/></a>
+        <a href="https://www.linkedin.com/in/vinicius-marques-966918274/"><img src="https://skillicons.dev/icons?i=linkedin" alt="LinkedIn"/></a>
+      </td>
+    </tr>
+  </table>
+</div>
+
+---
+
+## License
+
+Released under the [MIT License](LICENSE). © 2026 Enzo Ferroni, Francisco Losada, Gabriel Gonçalves, Pedro Tessaro and Vinicius Marques.
